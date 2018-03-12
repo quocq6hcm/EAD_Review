@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <h:head>
+        <title>aa</title>
+    </h:head>
+
+
+    <h:body>
+        <h:form>
+            Search by name: <h:inputText value="#{userMB.fullname}"/>
+            <h:commandButton value="search" action="#{userMB.search(userMB.fullname)}"/>
+
+            <hr/>
+            <br/>
+
+            <h:commandLink value="Add new employee" action="insert"/>
+            <h:dataTable value="#{userMB.list}" var="e" border="1">
+                <h:column>
+                    <f:facet name="header">ID:</f:facet> #{e.username}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Fullname:</f:facet> #{e.fullname}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Email:</f:facet> #{e.email}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Actions</f:facet>
+                    <h:commandLink value="edit" action="#{userMB.findById(e.username)}"/> -
+                    <h:commandLink value="Delete" action="#{userMB.delete(e.username)}"
+                                   onclick="return confirm('are you sure?')"/> -
+                </h:column>
+
+            </h:dataTable>
+        </h:form>
+        <br />
+
+    </h:body>
+
+</html>

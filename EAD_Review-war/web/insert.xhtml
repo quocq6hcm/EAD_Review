@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+    <title>insert </title>
+</h:head>
+<h1>INSERT PAGE</h1>
+<h:body>
+
+    <h:form>
+        username: <h:inputText value="#{userMB.u.username}" id="username" required="true" requiredMessage="username not null"/>
+        <h:message for="id"/>
+        <br/>
+        fullname:<h:inputText value="#{userMB.u.fullname}" id="name" required="true"
+                              requiredMessage="fullname not null"/>
+        <h:message for="name"/>
+        <br/>
+        email:<h:inputText value="#{userMB.u.email}" id="yob" required="true"
+                           requiredMessage="yob 1990 to 2000"/>
+        <!--<f:validateLongRange minimum="1990" maximum="2000"/>-->
+        <h:message for="yob"/>
+        <br/>
+        
+        <h:commandButton value="Create" action="#{userMB.save(userMB.u)}"/>
+    </h:form>
+
+</h:body>
+
+</html>
